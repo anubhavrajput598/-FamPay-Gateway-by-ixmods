@@ -18,10 +18,10 @@ from flask import Flask, request, jsonify
 # ─────────────────────────────────────────────
 #  CONFIG
 # ─────────────────────────────────────────────
-EMAIL_ADDRESS  = os.environ.get("allienff2@gmail.com", "")
-EMAIL_APP_PASS = os.environ.get("ilre wkxz pbgy ebkv", "")
-IMAP_SERVER    = "imap.gmail.com"
-IMAP_PORT      = 993
+EMAIL_ADDRESS = os.environ.get("EMAIL_ADDRESS", "")
+EMAIL_APP_PASS = os.environ.get("EMAIL_APP_PASS", "")
+IMAP_SERVER = "imap.gmail.com"
+IMAP_PORT = 993
 
 app = Flask(__name__)
 
