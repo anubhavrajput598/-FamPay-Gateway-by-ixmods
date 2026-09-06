@@ -25,6 +25,7 @@ IMAP_SERVER = "imap.gmail.com"
 IMAP_PORT = 993
 
 app = Flask(__name__)
+CORS(app)
 
 # ─────────────────────────────────────────────
 #  CORE LOGIC
