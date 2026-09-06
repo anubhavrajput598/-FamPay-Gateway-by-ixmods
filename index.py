@@ -183,14 +183,20 @@ def search_gmail(query_id: str) -> dict:
 # ─────────────────────────────────────────────
 #  FLASK ROUTES (API only, no web UI)
 # ─────────────────────────────────────────────
-
 @app.route("/api/fampay")
 def api_fampay():
     query_id = request.args.get("id") or request.args.get("utr") or request.args.get("transaction", "")
+
     if not query_id:
-        return jsonify({"error": "Provide UTR or Transaction ID via ?id=, ?utr=, or ?transaction="}), 400
+        return jsonify({
+            "error": "Provide UTR or Transaction ID via ?id=, ?utr=, or ?transaction="
+        }), 400
 
     result = search_gmail(query_id.strip())
+
+    # API Credit
+    result["credit"] = "API by @mars24x7 | Dev @marshelp01"
+
     return jsonify(result)
 
 
